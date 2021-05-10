@@ -104,7 +104,7 @@ ul div{
     border-top:1px dotted black;
     text-align: center;
 }
-#cate_title,#recipe_title,#contact_title,#default_content,.recipe_page_title{
+#cate_title,#recipe_title,#contact_title,#default_content,.recipe_page_title,.category_page_title{
    padding:.3% 3%;
     position: absolute;
     left:50%;
@@ -113,6 +113,9 @@ ul div{
     background-color: blue;
     color:white;
     border-radius: 20px 20px 20px 20px;
+}
+.category_page_title{
+    background-color: red;
 }
 #default_content{
     background-color: lightsalmon;
@@ -126,7 +129,7 @@ ul div{
     align-items: center;
     justify-content: space-evenly;
 }
-#breakfast,#lunch_div,#dinner_div,#snacks_div{
+#Breakfast_div,#Lunch_div,#Dinner_div,#Snacks_div{
     width:24%;
     box-shadow:0px 0px 3px 0px #8888;
 }
@@ -137,19 +140,7 @@ ul div{
     position: relative;
     text-align: center;
 }
-#bf_pic1{
-    background-image: url("https://media.istockphoto.com/photos/breakfast-with-bacon-eggs-pancakes-and-toast-picture-id533645537?k=6&m=533645537&s=612x612&w=0&h=iccHuYLLyNyO_Ok84RKBB-pHEc-sPiS6zC_IMlch-QA=");
-}
-#lunch_pic1{
-    background-image: url("https://d4t7t8y8xqo0t.cloudfront.net/resized/750X436/eazytrendz%2F2083%2Ftrend20181105100605.jpg");
-}
-#dinner_pic1{
-    background-image: url("https://www.archanaskitchen.com/images/archanaskitchen/0-Affiliate-Articles/Recipe_Collection/7_Wholesome_Indian_Dinner_Recipes_For_Vegan_Nights.jpg");
-}
-#snacks_pic1{
-    background-image: url("https://www.foodbusinessnews.net/ext/resources/FBN-Features/7/SaltySnacks_Lead.jpg?1530804417");
-}
-#breakfast_title,#lunch_title,#dinner_title,#snacks_title{
+#Breakfast_title,#Lunch_title,#Dinner_title,#Snacks_title{
     position:absolute;
     bottom:-15%;
     left: 50%;
@@ -173,13 +164,14 @@ ul div{
     position: relative;
 }
 .go_to_Button{
-    padding:2% 5%;
-    margin-bottom: 3%;
+    background-color:lightgreen;
+    color:white;
     letter-spacing:3px;
     border:none;
     outline:none;
-    background-color:lightgreen;
-    color:white;
+    padding:2% 5%;
+    margin-bottom: 3%;
+    cursor: pointer;
 }
 .recipe_block{
     width:70%;

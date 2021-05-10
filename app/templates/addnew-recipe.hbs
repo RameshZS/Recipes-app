@@ -8,23 +8,23 @@
             @type="text" 
             @id="recipe_img_text" 
             placeholder="paste your image url" 
-            @value={{this.image}} />
+            @value={{this.model.image}} />
         </div>
          <div class="input_block">
             <h3>Receipe_name :</h3>
-            {{input type="text" id="recipe_name_input" value=this.recipe_name }}
+            {{input type="text" id="recipe_name_input" value=this.model.recipe_name }}
         </div>
          <div class="input_block">
             <h3>Recipe preparation Full time :</h3>
-            {{input type="text"  value=this.time }}
+            {{input type="text"  value=this.model.time }}
         </div>
          <div class="input_block">
             <h3>select Food type :</h3>
-            <SelectTagContainer @data={{this.model.categoryType}} @value={{this.value}} ></SelectTagContainer>
+            <CategorySelectTagContainer @data={{this.selectTagData.categoryType}} @value={{this.value}} ></CategorySelectTagContainer>
         </div>
          <div class="input_block">
             <h3>Recipe Ingredients(using coma) :</h3>
-            {{textarea id="textarea" cols="30" rows="5"  value=this.ingredients }}
+            {{textarea id="textarea" cols="30" rows="5"  value=this.ingredients}}
         </div>
         <div class="input_block">
             <h3>Prepartion time:</h3>
@@ -36,11 +36,11 @@
         </div>
          <div class="input_block">
             <h3>Diffculty Level:</h3>
-           <SelectTagContainer @data={{this.model.level}} @value={{this.value}} ></SelectTagContainer>
+           <SelectTagContainer @data={{this.selectTagData.level}} @value={{this.value}} ></SelectTagContainer>
         </div>
         <div class="input_block">
             <h3>Rating of the Recipe :</h3>
-           <SelectTagContainer @data={{this.model.Rating}} @value={{this.value}} ></SelectTagContainer>
+           <SelectTagContainer @data={{this.selectTagData.Rating}} @value={{this.value}} ></SelectTagContainer>
         </div>
         <button type="button" {{on 'click' this.addNew}} >ADD</button>
     </div>

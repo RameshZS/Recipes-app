@@ -7,15 +7,15 @@
         <img src="https://cdn1.iconfinder.com/data/icons/user-pictures/101/malecostume-512.png" id="signup_logo"/>
         <div id="user_name" class="signup_input">
             <div class="signup_icon"><i class="fa fa-user-circle" aria-hidden="true"></i></div>
-            {{input type="text"  value=this.userName }}
+            {{input type="text"  value=this.model.userName }}
         </div>
         <div id="user_num" class="signup_input">
             <div class="signup_icon"><i class="fa fa-phone" aria-hidden="true"></i></div>
-            {{input type="number" placeholder="Phone Number" value=this.userNum }}
+            {{input type="number" placeholder="Phone Number" value=this.model.userNum }}
         </div>
          <div id="user_pwd" class="signup_input">
             <div class="signup_icon"><i class="fa fa-lock" aria-hidden="true"></i></div>
-            {{input type="password" placeholder="password" value=this.pwd }}
+            {{input type="password" placeholder="password" value=this.model.password }}
         </div>
         <button type="button" id="signup_button" {{on 'click' this.userExists}}>SIGNUP</button>
     </div>

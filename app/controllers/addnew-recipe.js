@@ -3,47 +3,69 @@ import { action } from '@ember/object';
 
 export default class AddnewRecipeController extends Controller {
   value = {
-    categoryType: 'Breakfast',
+    categoryType: '1',
     level: 'Easy',
     rating: '⭐⭐⭐',
   };
   @action
   addNew() {
-    let data = this.store.peekAll('recipe-details');
-    let id = Number(data.lastObject.id) + 1;
+    let instance = this.model;
+    let category = this.store.peekRecord('category', this.value.categoryType);
     if (
-      this.recipe_name != undefined &&
-      this.time != undefined &&
-      this.image != undefined &&
+      instance.recipe_name != undefined &&
+      instance.time != undefined &&
+      instance.image != undefined &&
       this.ingredients != undefined &&
       this.preptime != undefined &&
       this.cooktime != undefined
     ) {
-      let recipeDetails = {
-        id: id,
-        recipe_name: this.recipe_name.toUpperCase(),
-        time: this.time,
-        type: this.value.categoryType,
-        image: this.image,
-        ingredients: this.ingredients.split(','),
-        timeManageMent: [
-          {
-            prep: this.preptime,
-            cook: this.cooktime,
-            readyin: this.time,
-          },
-        ],
-        level: this.value.level,
-        Rating: this.value.rating,
-      };
-      let createNewRecipe = this.store.createRecord(
-        'recipe-details',
-        recipeDetails
-      );
-      createNewRecipe.save();
-      this.transitionToRoute('recipesapp');
+      console.log(this.value.categoryType);
+      instance.ingredients = this.ingredients.split(',');
+      instance.type = category;
+      instance.level = this.value.level;
+      instance.Rating = this.value.rating;
+      instance.timeManageMent = [
+        {
+          prep: this.preptime,
+          cook: this.cooktime,
+          readyin: this.model.time,
+        },
+      ];
+      let user = this.store.peekAll('user-detail');
+      let currentUser;
+      user.forEach((loginUser) => {
+        if (loginUser.state == true) {
+          currentUser = loginUser;
+        }
+      });
+      instance.userData = currentUser;
+      this.model.save();
+      //this.transitionToRoute('recipes-page');
     } else {
       alert('Please give all proper value');
     }
+  }
+
+  get selectTagData() {
+    let selectTagObject = {
+      categoryType: [
+        {
+          id: '1',
+          categoryName: 'BreakFast',
+        },
+        { id: '2', categoryName: 'Lunch' },
+        {
+          id: '3',
+          categoryName: 'Dinner',
+        },
+        {
+          id: '4',
+          categoryName: 'Snacks',
+        },
+      ],
+      level: ['Easy', 'Average', 'Difficult'],
+      Rating: ['⭐⭐⭐', '⭐⭐⭐⭐', '⭐⭐⭐⭐⭐'],
+    };
+    return selectTagObject;
   }
 }

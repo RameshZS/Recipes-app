@@ -1,16 +1,10 @@
 import Route from '@ember/routing/route';
-
+import { action } from '@ember/object';
 export default class EditRecipeRoute extends Route {
   model(params){
     const { recipe_id } = params;
-    let editPageData = {
-      recipeData: this.store.peekRecord('recipe-details', recipe_id),
-      selectTagData: {
-        categoryType: ['BreakFast', 'Lunch', 'Snacks', 'Dinner'],
-        level: ['Easy', 'Average', 'Difficult'],
-        Rating: ['⭐⭐⭐', '⭐⭐⭐⭐', '⭐⭐⭐⭐⭐'],
-      },
-    };
-    return editPageData;
+    let recipeData = this.store.peekRecord('recipe-detail', recipe_id);
+    console.log(recipeData);
+    return recipeData;
   }
 }

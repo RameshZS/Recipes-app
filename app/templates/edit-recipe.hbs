@@ -4,25 +4,25 @@
         <h1>EDIT BOX</h1>
       <div class="edit_input_box">
        <h3>Recipe Name :</h3>
-       {{input type="text" name="time" value=this.model.recipeData.recipe_name }}
+       {{input type="text" name="time" value=this.model.recipe_name }}
       </div>
        <div class="edit_input_box">
        <h3>Full Preparation time :</h3>
-       {{input type="text" value=this.model.recipeData.time data=this.time }}
+       {{input type="text" value=this.model.time data=this.time }}
       </div>
        <div class="edit_input_box">
        <h3>Paste image URL :</h3>
-       {{input type="text" value=this.model.recipeData.image }}
+       {{input type="text" value=this.model.image }}
       </div>
        <div class="edit_input_box">
        <h3>Select Food category:</h3>
-       <SelectTagContainer @data={{this.model.selectTagData.categoryType}} @value={{this.value}}></SelectTagContainer>
+       <CategorySelectTagContainer @data={{this.selectTagData.categoryType}} @value={{this.value}}></CategorySelectTagContainer>
       </div>
       <div class="edit_input_box">
           <h3>Recipe Ingredients(using coma) :</h3>
-          {{textarea id="textarea" cols="30" rows="5"  value=this.model.recipeData.ingredients }}
+          {{textarea id="textarea" cols="30" rows="5"  value=this.model.ingredients }}
       </div>
-      {{#each  this.model.recipeData.timeManageMent as |timeManageMent|}}
+      {{#each  this.model.timeManageMent as |timeManageMent|}}
            <div class="edit_input_box">
           <h3>Preparation time :</h3>
           {{input type="text" value=timeManageMent.prep }}
@@ -34,11 +34,11 @@
       {{/each}}
       <div class="edit_input_box">
        <h3>Difficulty Level:</h3>
-       <SelectTagContainer @data={{this.model.selectTagData.level}} @value={{this.value}}></SelectTagContainer>
+       <SelectTagContainer @data={{this.selectTagData.level}} @value={{this.value}}></SelectTagContainer>
       </div>
       <div class="edit_input_box">
        <h3>Rating of the recipe:</h3>
-       <SelectTagContainer @data={{this.model.selectTagData.Rating}} @value={{this.value}}></SelectTagContainer>
+       <SelectTagContainer @data={{this.selectTagData.Rating}} @value={{this.value}}></SelectTagContainer>
       </div>
       <button type="button" {{action this.editRecipe }}>EDIT</button>
     </div>

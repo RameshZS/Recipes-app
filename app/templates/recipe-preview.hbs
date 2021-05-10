@@ -1,14 +1,14 @@
 {{page-title "RecipePreview"}}
 <NavbarContainer></NavbarContainer>
 <div class="recipe_previewContainer">
-    <h1 class="recipe_name_title">{{this.model.singleRecipeData.recipe_name}}</h1>
+    <h1 class="recipe_name_title">{{this.model.recipe_name}}</h1>
     <div class="recipe_details_container">
         <h3 id="default_content">COOK WITH US: EASY, FRESH AND COLORFUL MEALS</h3>
         <div class="image_time_details">
-            <div class="preview_button" {{on 'click' (fn this.previousAction this.model.singleRecipeData.id)}}><i class="fa fa-step-backward" aria-hidden="true"></i></div>
-            <img src={{this.model.singleRecipeData.image}} id="recipe_image"/>
+            <div class="preview_button" {{on 'click' (fn this.previousAction this.model.id)}}><i class="fa fa-step-backward" aria-hidden="true"></i></div>
+            <img src={{this.model.image}} id="recipe_image"/>
             <div id="time_mangement_table">
-                {{#each @this.model.singleRecipeData.timeManageMent as |time_set| }} 
+                {{#each @this.model.timeManageMent as |time_set| }} 
                 <div id="prep_tm">
                     <h4 class="time_type">PREP</h4>
                     <h5 class="duration">{{time_set.prep}}</h5>
@@ -24,19 +24,20 @@
                  {{/each}}
                 <div id="level">
                     <h4 class="time_type">LEVEL</h4>
-                    <h5 class="duration">{{this.model.singleRecipeData.level}}</h5>
+                    <h5 class="duration">{{this.model.level}}</h5>
                 </div>
                 <div id="rating">
                     <h4 class="time_type">RATING</h4>
-                    <h5 class="duration">{{this.model.singleRecipeData.Rating}}</h5>
+                    <h5 class="duration">{{this.model.Rating}}</h5>
                 </div>
             </div>
+            <h2>Created By user {{this.model.userData.userName}}</h2>
         </div>
         <div class="ingredients_details">
-             <div class="next_button"  {{on 'click' (fn this.forwardAction this.model.singleRecipeData.id) }}><i class="fa fa-step-forward" aria-hidden="true"></i></div>
+             <div class="next_button"  {{on 'click'  this.forwardAction}}><i class="fa fa-step-forward" aria-hidden="true"></i></div>
             <h2>INGREDIENTS</h2>
             <div class="ingredient_div">
-                {{#each this.model.singleRecipeData.ingredients as |item|}}
+                {{#each this.model.ingredients as |item|}}
                     <div class="items_div">
                         <div class="icon">
                             <i class="fa fa-star" aria-hidden="true"></i>
@@ -47,17 +48,17 @@
                      </div>
                 {{/each}}
             </div>
-            <div class="about_food_type"><h2>Food type</h2><h2>{{this.model.singleRecipeData.type}}</h2></div>
+            <div class="about_food_type"><h2>Food type</h2><h2>{{this.model.type.categoryName}}</h2></div>
             <div class="similar_recipes">
                 <div id="top_bar">
                     <h2>SIMILAR RECIPES</h2>
                          <div id='slide_button'>
-                        <LinkTo @route="edit-recipe" @model={{this.model.singleRecipeData.id}} class="Edit_link"><button type="button">EDIT<i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></LinkTo>
-                         <LinkTo @route="delete-page" @model={{this.model.singleRecipeData.id}} class="Edit_link"><button type="button">DELETE<i class="fa fa-caret-right" aria-hidden="true"></i></button></LinkTo>
+                        <LinkTo @route="edit-recipe" @model={{this.model.id}} class="Edit_link"><button type="button">EDIT<i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></LinkTo>
+                         <LinkTo @route="delete-page" @model={{this.model.id}} class="Edit_link"><button type="button">DELETE<i class="fa fa-caret-right" aria-hidden="true"></i></button></LinkTo>
                     </div>
                 </div>
                 <div class="slideContainer">
-                    {{#each this.model.similarRecipes as |recipe|}}
+                    {{#each this.getSmiliarRecipes as |recipe|}}
                            <LinkTo @route="recipe-preview" @model={{recipe.id}} class="similar_recipe_link"><div class="slide_box">
                         <img src={{recipe.image}} class="slide_image">
                         <h2 id="recipe_names">{{recipe.recipe_name}}</h2>

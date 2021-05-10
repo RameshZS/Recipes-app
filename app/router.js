@@ -17,5 +17,6 @@ Router.map(function () {
   this.route('login-page');
   this.route('signup-page');
   this.route('edit-recipe', { path: '/edit-recipe/:recipe_id' });
-  this.route('delete-page', { path: '/delete-recipe/:recipe_id' });
+  this.route('category-page', { path: '/category-page/:category_id' });
+  this.route('delete-page', { path: '/delete-page/:recipe_id' });
 });

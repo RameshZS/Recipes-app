@@ -6,27 +6,28 @@ export default class SignupPageController extends Controller {
   @service store;
   @action
   addUser() {
-    let addUser = this.store.createRecord('user-details');
-    addUser.userName = this.userName;
-    addUser.userNum = this.userNum;
-    addUser.password = this.pwd;
-    addUser.state = false;
-    addUser.save();
+    this.model.state = false;
+    this.model.save();
   }
+
   @action
   userExists() {
     let nameCheck = /[a-zA-z]{3,25}/.test(this.userName);
-    let passwordCheck = /(?=(.*[0-9]))((?=.*[A-Za-z0-9])(?=.*[A-Z])(?=.*[a-z]))^.{8,}$/.test(this.pwd);
+    let passwordCheck = /(?=(.*[0-9]))((?=.*[A-Za-z0-9])(?=.*[A-Z])(?=.*[a-z]))^.{8,}$/.test(
+      this.model.password
+    );
     if (
-      (this.userName != undefined &&
-      this.userNum != undefined &&
-      this.pwd != undefined) &&
+      (this.model.userName != undefined &&
+      this.model.userNum != undefined &&
+      this.model.password != undefined) &&
       (nameCheck &&
-      this.userNum.length > 9 &&
+      this.model.userNum.length > 9 &&
       passwordCheck)
     ) {
-      let data = this.store.peekAll('user-details').filter((element) => {
-        return element.userNum.includes(this.userNum);
+      let data = this.store.peekAll('user-detail').filter((element) => {
+        if (element.isSaving) {
+          return element.userNum.includes(this.model.userNum);
+        }
       });
       if (data.length == 0) {
         this.addUser();

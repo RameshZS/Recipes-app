@@ -3,10 +3,11 @@ import { inject as service } from '@ember/service';
 
 export default class RecipesappRoute extends Route {
   @service store;
-  model(params) {
-    const { user_id } = params;
-    return this.store.peekAll('recipe-details').filter((element) => {
-      return element.id <8;
+  model() {
+    let recipeData = this.store.peekAll('recipe-detail').filter((ele) => {
+      return Number(ele.id) < 8;
     });
+    console.log(recipeData);
+    return recipeData;
   }
 }

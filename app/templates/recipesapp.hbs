@@ -5,40 +5,20 @@
 <div class="category_container" id="category_container">
     <h4 id="cate_title">CATEGORIES</h4>
   <div class="category">
-      <div id="breakfast">
-          <div id="bf_pic1" class="category_images">
-            <h4 id="breakfast_title">BREAK FAST</h4>
+    {{#each this.categoryData as |item|}}
+          <div id="{{item.categoryName}}_div">
+          <div id="{{item.categoryName}}_pic1" class="category_images" style="background-image: url({{item.image}})">
+            <h4 id="{{item.categoryName}}_title">{{item.categoryName}}</h4>
           </div>
-          <p class="about_food">Breakfast is the most important meal of the day. When you feed yourself what your body needs when it needs it, that's love. So give your bod some TLC and sit down and enjoy a good, substantial breakfast</p>
-        <button type="button" class="go_to_Button">GO TO<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
+          <p class="about_food">{{item.description}}</p>
+          <LinkTo @route='category-page' @model={{item.id}} class="go_button_link"><button type="button" class="go_to_Button">GO TO<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button></LinkTo>
       </div>
-      <div id="lunch_div" >
-          <div id="lunch_pic1" class="category_images">
-            <h4 id="lunch_title">LUNCH</h4>
-          </div>
-          <p class="about_food">Lunch is special food of each country.Each country has a unique meal of the lunch.we ignore the lunch,it's means we don't care about them health.Breakfast is king.lunch is princess.Dinner is queen.</p>
-         <button type="button" class="go_to_Button">GO TO<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
-      </div>
-      <div id="dinner_div" >
-          <div id="dinner_pic1" class="category_images">
-            <h4 id="dinner_title">DINNER</h4>
-          </div>
-          <p class="about_food">The dinner table is the center for the teaching and practicing not just of table manners but of conversation, family feeling, and just about all the other accomplishments of polite society except the minuet.</p>
-         <button type="button" class="go_to_Button">GO TO<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button> 
-      </div>
-      <div id="snacks_div" >
-          <div id="snacks_pic1" class="category_images">
-            <h4 id="snacks_title">SNACKS</h4>
-          </div>
-          <p class="about_food">The dinner table is the center for the teaching and practicing not just of table manners but of conversation, family feeling, and just about all the other accomplishments of polite society except the minuet.</p>
-         <button type="button" class="go_to_Button">GO TO<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button> 
-      </div>      
+    {{/each}}
   </div>
 </div>
 <div class="recipe_container" id="recipe_container">
   <h4 id="recipe_title">RECIPES</h4>
-       <RecipesContainer @data={{this.model}}>
-        
+       <RecipesContainer @data={{this.model}} >
        </RecipesContainer>
 </div>
 <div class="ads_container">
@@ -67,4 +47,3 @@
 
 </FooterContainer>
 </div>
-{{outlet}}

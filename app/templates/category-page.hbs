@@ -1,0 +1,11 @@
+{{page-title "CategoryPage"}}
+  <div class="recipe_list_container">
+     <h2 class="category_page_title">{{this.model.categoryName}}</h2>
+    <div class="back_arrow">
+        <div class="back_page"><a href="../recipesapp"><i class="fa fa-arrow-left" aria-hidden="true"></i></a></div>
+    </div>
+        <RecipesContainer @data={{this.model.recipe}}>
+        
+       </RecipesContainer>
+  </div>
+{{outlet}}

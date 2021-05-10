@@ -5,7 +5,7 @@ export default class LoginPageController extends Controller {
   /*Check the user for login operation */
   @action
   checkUserExists() {
-    let user = this.store.peekAll('user-details');
+    let user = this.store.peekAll('user-detail');
     user.forEach((element) => {
       if (element.userNum == this.userNum && element.password == this.pwd) {
         element.state = true;
@@ -13,7 +13,7 @@ export default class LoginPageController extends Controller {
         this.transitionToRoute('recipesapp');
       }
     });
-    let getRecord = this.store.peekAll('user-details').filter((ele) => {
+    let getRecord = this.store.peekAll('user-detail').filter((ele) => {
       return ele.userNum == this.userNum && ele.password == this.pwd;
     });
     if (getRecord.length == 0) {

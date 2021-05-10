@@ -2,7 +2,7 @@ export const recipes = [
   {
     recipe_name: 'APPETIZER MUSSELS',
     time: '20min',
-    type: 'Dinner',
+    type: '3',
     image:
       'https://www.carolinescooking.com/wp-content/uploads/2020/10/appetizers-square.jpg',
     ingredients: [
@@ -26,7 +26,7 @@ export const recipes = [
   {
     recipe_name: 'BEAN SALAD WITH CELERY',
     time: '2h 15min',
-    type: 'Dinner',
+    type: '3',
     image:
       'https://www.inspiredtaste.net/wp-content/uploads/2020/07/Bean-Salad-Recipe-2-1200.jpg',
     ingredients: [
@@ -54,7 +54,7 @@ export const recipes = [
   {
     recipe_name: 'BEER CHEESE DIP',
     time: '40 min',
-    type: 'Snacks',
+    type: '4',
     image:
       'https://mccormick.widen.net/content/amtutsigoi/jpeg/scottish_ale_beer_cheese_dip18262.jpg',
     ingredients: [
@@ -79,7 +79,7 @@ export const recipes = [
   {
     recipe_name: 'ANDHRA CHICKEN',
     time: '1 hr',
-    type: 'Lunch',
+    type: '2',
     image:
       'https://www.indianhealthyrecipes.com/wp-content/uploads/2018/07/chicken-fry.jpg',
     ingredients: [
@@ -106,7 +106,7 @@ export const recipes = [
   {
     recipe_name: 'BRONTOSAURUS BURGERS',
     time: '50 min',
-    type: 'Dinner',
+    type: '3',
     image:
       'https://good-food.cmsmasters.net/wp-content/uploads/2017/06/75636117.jpg',
     ingredients: [
@@ -132,7 +132,7 @@ export const recipes = [
   {
     recipe_name: 'CHERRY PIE',
     time: '3 hr',
-    type: 'Snacks',
+    type: '4',
     image:
       'https://i.pinimg.com/originals/c2/e8/86/c2e886b4673d7f9a8f52e92a906b7d63.jpg',
     ingredients: [
@@ -158,7 +158,7 @@ export const recipes = [
   {
     recipe_name: 'DAL KICHADI',
     time: '40 min',
-    type: 'Lunch',
+    type: '2',
     image:
       'https://asmallbite.com/wp-content/uploads/2018/05/Moong-Dal-Khichdi-Recipe-450x375.jpg',
     ingredients: [
@@ -186,7 +186,7 @@ export const recipes = [
   {
     recipe_name: 'CREAMY MUSHROOM PASTA',
     time: '45 min',
-    type: 'Break fast',
+    type: '1',
     image:
       'https://www.inspiredtaste.net/wp-content/uploads/2020/07/Bean-Salad-Recipe-2-1200.jpg',
     ingredients: [
